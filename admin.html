@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Bereich</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="checkAdminAccess()">
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div id="menu" class="menu">
+        <a href="index.html">Startseite</a>
+        <a href="login.html">Login</a>
+        <a id="adminLink" href="admin.html">Admin Bereich</a>
+        <a id="logoutLink" href="index.html" onclick="logout()">Logout</a>
+    </div>
+    <div class="container">
+        <h1>Admin Bereich</h1>
+        
+        <input type="file" id="fileInput" accept=".xlsx" style="display: none;" onchange="prepareImport()">
+        <button class="btn" onclick="document.getElementById('fileInput').click()">Excel-Datei auswählen</button>
+        <button class="btn" id="uploadButton" style="display: none;" onclick="importData()">Jetzt hochladen</button>
+        <button class="btn btn-export" onclick="exportDataToPDF()">Daten als PDF exportieren</button>
+        
+        <div id="importNotification" class="notification" style="display: none;">
+            Import durchgeführt. <span class="close" onclick="closeNotification()">X</span>
+        </div>
+        
+        <h2>Turniere</h2>
+        <ul id="tournamentList"></ul>
+
+        <h2>Wettkämpfer</h2>
+        <ul id="athleteList"></ul>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wettkampf Bewertung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div id="menu" class="menu">
+        <a href="index.html">Startseite</a>
+        <a href="login.html">Login</a>
+        <a id="adminLink" href="admin.html" style="display:none;">Admin Bereich</a>
+        <a id="logoutLink" href="index.html" onclick="logout()" style="display:none;">Logout</a>
+    </div>
+    <div class="container">
+        <h1>Wettkampf Bewertung</h1>
+
+        <div class="form-group">
+            <label for="tournament">Turnier:</label>
+            <select id="tournament" onchange="loadAgeClasses()">
+                <!-- Turniere werden hier hinzugefügt -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ageClass">Altersklasse:</label>
+            <select id="ageClass" onchange="loadDisciplines()">
+                <!-- Altersklassen werden hier hinzugefügt -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="discipline">Disziplin:</label>
+            <select id="discipline" onchange="loadAthletes()">
+                <!-- Disziplinen werden hier hinzugefügt -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="athlete">Wettkampf-Starter:</label>
+            <select id="athlete">
+                <!-- Wettkämpfer werden hier hinzugefügt -->
+            </select>
+        </div>
+
+        <div id="judges-inputs" class="form-group">
+            <label>Wertung 1: <input type="number" id="judge1" min="0" max="10"></label><br>
+            <label>Wertung 2: <input type="number" id="judge2" min="0" max="10"></label><br>
+            <label>Wertung 3: <input type="number" id="judge3" min="0" max="10"></label><br>
+            <label>Wertung 4: <input type="number" id="judge4" min="0" max="10"></label><br>
+            <label>Wertung 5: <input type="number" id="judge5" min="0" max="10"></label><br>
+            <label>Wertung 6: <input type="number" id="judge6" min="0" max="10"></label><br>
+            <label>Wertung 7: <input type="number" id="judge7" min="0" max="10"></label><br>
+        </div>
+        
+        <button class="btn" onclick="calculateAndSaveScore()">Berechnen und Speichern</button>
+        <h2 id="result"></h2>
+        
+        <h2>Ergebnisse</h2>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Platzierung</th>
+                    <th>Punktzahl (ohne Streichwertung)</th>
+                    <th>Punktzahl (inkl. Streichwertung)</th>
+                    <th>Streichwertungen</th>
+                    <th>Altersklasse</th>
+                    <th>Disziplin</th>
+                    <th>Startnummer</th>
+                    <th>Verein</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ergebnisse werden hier eingefügt -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
