@@ -51,6 +51,14 @@ input, select, button {
     background-color: #3700b3;
 }
 
+.btn-upload {
+    background-color: #4CAF50;
+}
+
+.btn-upload:hover {
+    background-color: #45a049;
+}
+
 .btn-export {
     background-color: #ff9800;
 }
